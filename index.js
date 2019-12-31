@@ -10,12 +10,18 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/cool', (req, res) => res.send(cool()))
-  .get('/token', (req, res) => res.send(token.TOKEN))
+  // .get('/token', (req, res) => res.send(token.TOKEN))
+  .get('/times', (req, res) => res.send(showTimes()))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
+  showTimes = () => {
+    let result = ''
+    const times = process.env.TIMES || 5
+    for (i = 0; i < times; i++) {
+      result += i + ' '
+    }
+    return result;
+  }
 
-  // express().get('/token', (req,res) => {
-  //   console.log(token);
-  //   res.send(token);
-  //   res.end();
-  // })
+
+
