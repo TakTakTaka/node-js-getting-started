@@ -2,7 +2,7 @@ const cool = require('cool-ascii-faces')
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const token = require('./config.js')
+// const token = require('./config.js')
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
